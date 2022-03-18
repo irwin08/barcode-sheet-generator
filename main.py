@@ -12,8 +12,10 @@ def generate_barcode_for_sku(sku):
 def draw_page(can, skus):
     
     height = 80
-    start_y = -86
+    #start_y = -86
+    start_y = 15
     barcode_width = 180
+    barcode_height = 79
 
     # expects a tuple of three barcode file paths
     def draw_at_y(y_pos, path_tup):
@@ -22,7 +24,7 @@ def draw_page(can, skus):
 
         for index, x_offset in zip(range(0,len(path_tup)), x_offsets):
 
-            can.drawInlineImage(path_tup[index], (x_offset + (barcode_width*index)), y_pos, width=barcode_width, preserveAspectRatio=True)
+            can.drawInlineImage(path_tup[index], (x_offset + (barcode_width*index)), y_pos, width=barcode_width, height=79, preserveAspectRatio=False)
 
 
     ## BETTER!! :) Thanks se_irl
